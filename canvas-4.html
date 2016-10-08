@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>   
+<head>   
+<meta charset="UTF-8">  
+<title>canvas元素示例</title>  
+
+</head>  
+<body onload="draw('canvas');">  
+<h1>canvas元素示例</h1>  
+
+<canvas id="canvas2" width=400px height="400">第4个图形</canvas> 
+
+
+
+
+<script>
+
+	function draw () {
+		var convas2 = document.getElementById("canvas2"),
+			context2 = canvas2.getContext("2d");
+		
+		context2.fillStyle = 'rgb(200, 200, 150)';
+		context2.fillRect(0, 0, 400, 400);
+
+		//图形绘制
+		context2.translate(200, 50);
+		context2.fillStyle = 'rgba(255, 0, 0, 0.25)';
+		for (var i = 0; i < 50; i++) {
+			context2.translate(25, 25);
+			context2.scale(0.95, 0.95);
+			context2.rotate(Math.PI / 10);
+			
+			createStar(context2);
+			context2.fill();
+		}
+
+	};
+
+	function createStar(context2) {
+		var n = 0,
+			dx = 100,
+			dy = 0,
+			s = 50;
+
+			//绘制路径
+		context2.beginPath();
+		context2.fillStyle = 'rgba(255, 0, 0, 0.5)';
+
+		var x = Math.sin(0),
+			y = Math.cos(0),
+			dig = Math.PI / 5 * 4;
+
+		for (var i = 0; i < 5; i++) {
+			x = Math.sin(i * dig);
+			y = Math.cos(i * dig);
+
+			context2.lineTo(dx + x * s, dy + y * s);
+		}
+
+		context2.closePath();
+
+	}
+	
+</script>
+</body>
+</html>

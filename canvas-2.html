@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>   
+<head>   
+<meta charset="UTF-8">  
+<title>canvas元素示例</title>  
+
+</head>  
+<body onload="draw('canvas');">  
+<h1>canvas元素示例</h1>  
+
+<canvas id="canvas2" width=400px height="400">第二个图形</canvas> 
+
+
+
+
+<script>
+
+	function draw () {
+		var convas2 = document.getElementById("canvas2"),
+			context2 = canvas2.getContext("2d"),
+			g1 = context2.createLinearGradient(0, 0, 0, 400);
+
+			g1.addColorStop(0, 'rgb(255, 255, 0)');
+			g1.addColorStop(1, 'rgb(0, 255, 255)');
+			context2.fillStyle = g1;
+			context2.fillRect(0, 0, 400, 400);
+
+			var g2 = context2.createLinearGradient(0, 0, 400, 0);
+			g2.addColorStop(0, 'rgba(0, 0, 255, 0.5)');
+			g2.addColorStop(1, 'rgba(255, 0, 0, 0.5)');
+
+			for (var i = 0; i < 10; i++) {
+				context2.beginPath();
+				context2.fillStyle = g2;
+				context2.arc(i * 25, i * 25, i * 10, 0, Math.PI * 2);
+				context2.closePath();
+
+				context2.fill();
+				context2.stroke();
+			}
+
+	
+
+	}
+	
+</script>
+</body>
+</html>

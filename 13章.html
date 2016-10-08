@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style rel='text/css'>
+			li:before {
+				content: '第'counter(mycounter)'个项目：';
+			}
+
+			li{counter-increment: mycounter}
+
+			.myp::selection{
+				background-color: red;
+			}
+        </style>
+    </head>
+    <body>
+
+    	<ul>
+    		<li>1</li>
+    		<li>2</li>
+    		<li>3</li>
+    		<li>4</li>
+    		<li>5</li>
+    	</ul>
+		<p class="myp">你好啊！！！</p>
+    	<ul>
+    		<li>6</li>
+    		<li>7</li>
+    		<li>8</li>
+    		<li>9</li>
+    		<li>10</li>
+    	</ul>
+
+
+    	<input type="email" placeholder="请输入您的邮箱">
+    </body>
+</html>
